@@ -1,12 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const keys = require("./config/keys");
-require("./services/passport");
 require("./models/User");
+require("./services/passport");
 
 const app = express();
 
 mongoose.connect(keys.mongoURI);
+
+mongoose
+  .connect(keys.mongoURI, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
 
 require("./routes/authRoutes")(app);
 
