@@ -4,7 +4,7 @@ class Header extends React.Component {
   render() {
     return (
       <nav className="container">
-        <div class="nav-wrapper">
+        <div className="nav-wrapper">
           <a href="#" className="left brand-logo">
             Survey-App
           </a>
