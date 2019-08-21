@@ -19,7 +19,10 @@ class Header extends React.Component {
           <li key="1">
             <Payments />
           </li>,
-          <li key="2">
+          <li key="2" style={{ margin: "0 10px" }}>
+            Credits: {this.props.auth.credits}
+          </li>,
+          <li key="3">
             <a href="/api/logout">Logout</a>
           </li>
         ];
@@ -28,7 +31,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <nav className="container">
+      <nav>
         <div className="nav-wrapper">
           <Link
             to={this.props.auth ? "/surveys" : "/"}
