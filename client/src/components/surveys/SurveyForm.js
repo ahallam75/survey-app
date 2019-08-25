@@ -45,4 +45,18 @@ class SurveyForm extends React.Component {
   }
 }
 
-export default reduxForm({ form: "surveyForm" })(SurveyForm);
+function validate(values) {
+  const errors = {};
+
+  errors.recipients = validateEmails(values.recipients || "");
+
+  _.each(formFields, ({ name }) => {
+    if (!values[name]) {
+      errors[name] = "You must provide a value";
+    }
+  });
+
+  return errors;
+}
+
+export default reduxForm({ validate, form: "surveyForm" })(SurveyForm);
