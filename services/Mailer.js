@@ -1,9 +1,9 @@
 const sendgrid = require("sendgrid");
 const helper = sendgrid.mail;
 const keys = require("../config/keys");
-const Mailer = require("../services/Mailer");
 
 // All the code below is how SendGrid requires you to set up the mailer. See sendgrid.com for details.
+
 class Mailer extends helper.Mail {
   constructor({ subject, recipients }, content) {
     super();
